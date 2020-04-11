@@ -2,7 +2,7 @@ const MessageSchema = require("../schemas/Message");
 
 class MessageControler {
   async list(req, res) {
-    const messages = await MessageSchema.find({});
+    const messages = await MessageSchema.find({}).sort([["createdAt", -1]]);
     return res.json(messages);
   }
 
